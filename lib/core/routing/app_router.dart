@@ -5,6 +5,8 @@ import 'package:flutter_complete_project/features/onboarding/ui/onboarding_scree
 
 class AppRouter {
   Route generateRoute(RouteSettings settings) {
+    // This Arguments is used to pass data between routes Like This (arguments as ClassName)
+    final arguments = settings.arguments;
     switch (settings.name) {
       case Routes.onBoardingScreen:
         return MaterialPageRoute(builder: (_) => const OnBoardingScreen());
