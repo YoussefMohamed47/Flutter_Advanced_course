@@ -50,7 +50,21 @@ android {
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
+    flavorDimensions += "default"
 
+    productFlavors {
+        Development {
+            dimension "default"
+            resValue "string", "app_name", "DocDoc Development"
+            applicationIdSuffix ".dev"
+            // This is the suffix that will be appended to your package name
+        }
+        Production {
+            dimension "default"
+            resValue "string", "app_name", "DocDoc Production"
+
+        }
+    }
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.
