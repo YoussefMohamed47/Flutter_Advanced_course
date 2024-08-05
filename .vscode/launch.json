@@ -13,7 +13,7 @@
         "lib/main_development.dart"
       ]
     },
-    {
+    { 
       "name": "DocDoc Production",
       "request": "launch",
       "type": "dart",
