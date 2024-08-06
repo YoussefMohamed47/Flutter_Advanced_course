@@ -1,5 +1,8 @@
 plugins {
     id "com.android.application"
+    // START: FlutterFire Configuration
+    id 'com.google.gms.google-services'
+    // END: FlutterFire Configuration
     id "kotlin-android"
     id "dev.flutter.flutter-gradle-plugin"
 }
@@ -45,12 +48,26 @@ android {
         applicationId "com.example.flutter_complete_project"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdkVersion flutter.minSdkVersion
+        minSdkVersion 21
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
+    flavorDimensions += "default"
 
+    productFlavors {
+        Development {
+            dimension "default"
+            resValue "string", "app_name", "DocDoc Development"
+            applicationIdSuffix ".dev"
+            // This is the suffix that will be appended to your package name
+        }
+        Production {
+            dimension "default"
+            resValue "string", "app_name", "DocDoc Production"
+
+        }
+    }
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.
@@ -63,5 +80,18 @@ android {
 flutter {
     source '../..'
 }
+configurations.all {
+    resolutionStrategy.force "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+}
 
-dependencies {}
+dependencies {
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version") {
+        exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib'
+    }
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version") {
+        exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib'
+    }
+
+    // Other dependencies
+}
