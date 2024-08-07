@@ -4,7 +4,8 @@ class AppImages {
 }
 
 class AppIcons {
-  final String iconsPath = 'assets/icons/';
-  static const String logo = 'assets/icons/logo.svg';
-  static const String backgroundLogo = 'assets/icons/background_logo.svg';
+  final String iconsPath = 'assets/svgs/';
+  static const String logo = 'assets/svgs/logo.svg';
+  static const String backgroundLogo = 'assets/svgs/background_logo.svg';
+  static const String notificationsSvg = 'assets/svgs/notifications.svg';
 }
