@@ -1,6 +1,9 @@
 class AppImages {
   final String imagesPath = 'assets/images/';
   static const String doctor = 'assets/images/doc_image.png';
+  static const String homeBluePattern = 'assets/images/home_blue_pattern.png';
+  static const String homeDocImage =
+      'assets/images/assets/images/home_bue_container_doc_image.png';
 }
 
 class AppIcons {
