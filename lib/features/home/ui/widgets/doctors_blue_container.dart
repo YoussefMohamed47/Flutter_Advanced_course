@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_complete_project/core/helpers/spacing.dart';
 import 'package:flutter_complete_project/core/resources/app_assets.dart';
 import 'package:flutter_complete_project/core/theming/styles.dart';
@@ -58,7 +57,7 @@ class DoctorsBlueContainer extends StatelessWidget {
             ),
           ),
           Positioned(
-            right: 16,
+            right: 8.w,
             top: 0,
             child: Image.asset(
               AppImages.homeDocImage,
