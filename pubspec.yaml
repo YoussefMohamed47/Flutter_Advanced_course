@@ -61,14 +61,10 @@ dependencies:
   # for Adapting Screen and font Size
   flutter_screenutil: ^5.9.0
   firebase_core: ^3.3.0
-
-
-
-
-
-
-
-
+  # Flutter library for Cache Image
+  cached_network_image: ^3.4.0
+  shared_preferences: ^2.2.3
+  flutter_secure_storage: ^4.2.1
 
 
 dev_dependencies:
@@ -98,7 +94,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
-    - assets/icons/
+    - assets/svgs/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
