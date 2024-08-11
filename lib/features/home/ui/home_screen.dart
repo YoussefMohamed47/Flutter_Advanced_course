@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_complete_project/core/helpers/spacing.dart';
-import 'package:flutter_complete_project/features/home/logic/home_cubit.dart';
-import 'package:flutter_complete_project/features/home/logic/home_state.dart';
-import 'package:flutter_complete_project/features/home/ui/widgets/doctor_speciality_list_view.dart';
 import 'package:flutter_complete_project/features/home/ui/widgets/doctor_speciality_see_all.dart';
 import 'package:flutter_complete_project/features/home/ui/widgets/doctors_blue_container.dart';
-import 'package:flutter_complete_project/features/home/ui/widgets/doctors_list_view.dart';
 import 'package:flutter_complete_project/features/home/ui/widgets/home_top_bar.dart';
 import 'package:flutter_complete_project/features/home/ui/widgets/specialization_and_doctors_bloc_builder.dart';
 

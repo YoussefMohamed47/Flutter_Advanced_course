@@ -1,4 +1,6 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_complete_project/core/helpers/constants.dart';
+import 'package:flutter_complete_project/core/helpers/shared_pref_helper.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class DioFactory {
@@ -23,11 +25,18 @@ class DioFactory {
     }
   }
 
-  static void addDioHeaders() {
+  static void addDioHeaders() async {
     dio?.options.headers = {
       'Accept': 'application/json',
       "Authorization":
-          "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3ZjYXJlLmludGVncmF0aW9uMjUuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzIzMzY2OTc4LCJleHAiOjE3MjM0NTMzNzgsIm5iZiI6MTcyMzM2Njk3OCwianRpIjoiUWxkaTZia1BxUUlUN2lhZCIsInN1YiI6IjEyMTYiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.QnGzW4r0MERA6zwh850x2tD0gaVp2JzUbM9oggIs_6Y",
+          "Bearer ${await SharedPrefHelper.getSecuredString(SharedPrefKeys.userToken) ?? ""}",
+    };
+  }
+
+  static void setTokenIntoHeaderAfterLogin(String token) async {
+    dio?.options.headers = {
+      "Authorization":
+          "Bearer ${await SharedPrefHelper.getSecuredString(SharedPrefKeys.userToken) ?? ""}",
     };
   }
 
