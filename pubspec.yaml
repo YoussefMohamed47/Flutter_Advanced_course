@@ -61,14 +61,8 @@ dependencies:
   # for Adapting Screen and font Size
   flutter_screenutil: ^5.9.0
   firebase_core: ^3.3.0
-
-
-
-
-
-
-
-
+  # Flutter library for Cache Image
+  cached_network_image: ^3.4.0
 
 
 dev_dependencies:
