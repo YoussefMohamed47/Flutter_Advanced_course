@@ -1,3 +1,4 @@
+import 'package:flutter_complete_project/core/helpers/extentions.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'api_error_model.g.dart';
@@ -6,11 +7,24 @@ part 'api_error_model.g.dart';
 class ApiErrorModel {
   final String? message;
   final int? statusCode;
+  @JsonKey(name: "data")
+  final Map<String, dynamic>? errors;
 
-  ApiErrorModel({required this.message, required this.statusCode});
+  ApiErrorModel({this.message, this.statusCode, this.errors});
 
   factory ApiErrorModel.fromJson(Map<String, dynamic> json) =>
       _$ApiErrorModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$ApiErrorModelToJson(this);
+
+  /// Returns a String contains all  the error messages
+  String getAllErrorsMessages() {
+    if (errors.isNullOrEmpty()) return message ?? "Unknown Error occured";
+
+    final errorMessage = errors!.entries.map((entry) {
+      final value = entry.value;
+      return "${value.join(',')}";
+    }).join("\n");
+    return errorMessage;
+  }
 }

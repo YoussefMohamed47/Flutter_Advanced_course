@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_complete_project/core/helpers/extentions.dart';
+import 'package:flutter_complete_project/core/networking/api_error_model.dart';
 import 'package:flutter_complete_project/features/sign%20up/logic/sign_up_cubit.dart';
 
 import '../../../../core/routing/routes.dart';
@@ -74,7 +75,7 @@ class SignupBlocListener extends StatelessWidget {
     );
   }
 
-  void setupErrorState(BuildContext context, String error) {
+  void setupErrorState(BuildContext context, ApiErrorModel error) {
     context.pop();
     showDialog(
       context: context,
@@ -85,7 +86,7 @@ class SignupBlocListener extends StatelessWidget {
           size: 32,
         ),
         content: Text(
-          error,
+          error.getAllErrorsMessages(),
           style: TextStyles.font15DarkBlueMedium,
         ),
         actions: [
