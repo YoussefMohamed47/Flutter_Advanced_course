@@ -36,9 +36,7 @@ class HomeCubit extends Cubit<HomeState> {
       emit(HomeState.doctorsSuccess(doctorsList));
     } else {
       emit(
-        HomeState.doctorsError(
-          ErrorHandler.handle("No doctors found"),
-        ),
+        const HomeState.doctorsError(),
       );
     }
   }
