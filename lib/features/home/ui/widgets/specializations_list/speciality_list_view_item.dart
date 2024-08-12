@@ -25,8 +25,10 @@ class SpecialityListViewItem extends StatelessWidget {
         children: [
           Container(
             decoration: selectedIndex == itemIndex
-                ? const BoxDecoration(
-                    color: ColorsManager.darkBlue,
+                ? BoxDecoration(
+                    border: Border.all(
+                      color: ColorsManager.darkBlue,
+                    ),
                     shape: BoxShape.circle,
                   )
                 : null,

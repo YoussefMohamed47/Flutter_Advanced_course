@@ -3,9 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_complete_project/core/helpers/spacing.dart';
 import 'package:flutter_complete_project/features/home/logic/home_cubit.dart';
 import 'package:flutter_complete_project/features/home/logic/home_state.dart';
-import 'package:flutter_complete_project/features/home/ui/widgets/speciality_list_view.dart';
-
-import 'doctors_list_view.dart';
+import 'package:flutter_complete_project/features/home/ui/widgets/doctors_list/doctor_shimmer_loading.dart';
+import 'package:flutter_complete_project/features/home/ui/widgets/specializations_list/speciality_list_view.dart';
+import 'package:flutter_complete_project/features/home/ui/widgets/specializations_list/speciality_shimmer_loading.dart';
 
 class SpecializationsBlocBuilder extends StatelessWidget {
   const SpecializationsBlocBuilder({super.key});
@@ -30,10 +30,16 @@ class SpecializationsBlocBuilder extends StatelessWidget {
     );
   }
 
+// Shimmer Loading for Specializations and Doctors
   Widget setupLoading() {
-    return const Center(
-      child: CircularProgressIndicator(),
-    );
+    return Expanded(
+        child: Column(
+      children: [
+        const SpecialityShimmerLoading(),
+        verticalSpace(8),
+        const DoctorsShimmerLoading(),
+      ],
+    ));
   }
 
   Widget setupError() {
@@ -41,18 +47,8 @@ class SpecializationsBlocBuilder extends StatelessWidget {
   }
 
   Widget setupSuccess(specializationsList) {
-    return Expanded(
-      child: Column(
-        children: [
-          SpecialityListView(
-            specializationsList: specializationsList ?? [],
-          ),
-          verticalSpace(8),
-          DoctorsListView(
-            doctorsList: specializationsList?[0]?.doctorsList,
-          ),
-        ],
-      ),
+    return SpecialityListView(
+      specializationsList: specializationsList ?? [],
     );
   }
 }
